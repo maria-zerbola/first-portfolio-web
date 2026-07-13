@@ -12,7 +12,7 @@ const posts = defineCollection({
     author: z.string(),
     readTime: z.string().default('5 Min Read'),
     date: z.coerce.date(),
-    cover: z.string().url(),
+    cover: z.string(),
     featured: z.boolean().default(false),
     pageNumber: z.string().optional(),
     tags: z.array(z.string()).default([]),
@@ -35,7 +35,7 @@ const work = defineCollection({
   schema: z.object({
     title: z.string(),
     year: z.string(),
-    cover: z.string().url(),
+    cover: z.string(),
     summary: z.string(),
     url: z.string().url().optional(),
     order: z.number().default(0),

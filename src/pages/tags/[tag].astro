@@ -28,11 +28,11 @@ const fmt = (d: Date) =>
   eyebrow="Tag"
   description={`${posts.length} essay${posts.length === 1 ? '' : 's'} tagged ${tag}.`}
 >
-  <p><a href="/blog">← All essays</a></p>
+  <p><a href="/thoughts">← All essays</a></p>
   <div class="post-list">
     {
       posts.map((post) => (
-        <a class="post-card" href={`/blog/${post.id}`}>
+        <a class="post-card" href={`/thoughts/${post.id}`}>
           <div class="post-card__cover">
             <img src={post.data.cover} alt="" loading="lazy" />
           </div>
