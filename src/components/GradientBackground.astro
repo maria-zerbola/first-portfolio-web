@@ -1,82 +1,110 @@
 <div class="gradient-background" id="gradientBackground"></div>
 
 <style>
-.gradient-background {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-  background: radial-gradient(circle at 20% 25%, rgb(148, 187, 255), transparent 80%),
-              radial-gradient(circle at 70% 12%, rgb(24, 220, 41), transparent 50%),
-              radial-gradient(circle at 45% 78%, rgb(237, 35, 153), transparent 90%),
-              linear-gradient(135deg, rgb(217, 219, 225), rgba(216, 40, 40, 0.88));
-  background-blend-mode: screen, screen, screen, normal;
-  /* fix: ingrandisco i layer radiali così il background-position ha un effetto reale */
-  background-size: 140% 140%, 140% 140%, 140% 140%, 100% 100%;
-  transform: translate3d(0, 0, 0);
-}
-
-.gradient-background::before,
-.gradient-background::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  transform: translate3d(0, 0, 0);
-}
-
-.gradient-background::before {
-  background: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), rgba(255, 255, 255, 0.24), transparent 16%),
-              radial-gradient(circle at calc(var(--cx, 50%) + 18%) calc(var(--cy, 50%) + 12%), rgba(102, 213, 255, 0.16), transparent 22%),
-              radial-gradient(circle at calc(var(--cx, 50%) - 20%) calc(var(--cy, 50%) - 18%), rgba(150, 121, 255, 0.14), transparent 24%);
-  filter: blur(34px);
-  opacity: 0.95;
-  mix-blend-mode: screen;
-}
-
-.gradient-background::after {
-  background: radial-gradient(circle at 30% 15%, rgba(255, 255, 255, 0.08), transparent 20%),
-              radial-gradient(circle at 80% 75%, rgba(166, 225, 255, 0.09), transparent 18%),
-              linear-gradient(120deg, rgba(11, 20, 58, 0.5), rgba(20, 64, 126, 0.45));
-  opacity: 0.8;
-}
-
-@keyframes rippleMove {
-  0%, 100% {
-    background-position: 20% 20%, 75% 18%, 50% 80%, 0% 0%;
+  .gradient-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 20% 25%, rgb(148, 187, 255), transparent 80%),
+      radial-gradient(circle at 70% 12%, rgb(24, 220, 41), transparent 50%),
+      radial-gradient(circle at 45% 78%, rgb(237, 35, 153), transparent 90%),
+      linear-gradient(135deg, rgb(217, 219, 225), rgba(216, 40, 40, 0.88));
+    background-blend-mode: screen, screen, screen, normal;
+    /* fix: ingrandisco i layer radiali così il background-position ha un effetto reale */
+    background-size:
+      140% 140%,
+      140% 140%,
+      140% 140%,
+      100% 100%;
+    transform: translate3d(0, 0, 0);
   }
-  50% {
-    background-position: 35% 30%, 60% 25%, 40% 70%, 0% 0%;
-  }
-}
 
-.gradient-background {
-  animation: rippleMove 18s ease-in-out infinite;
-}
+  .gradient-background::before,
+  .gradient-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .gradient-background::before {
+    background:
+      radial-gradient(
+        circle at var(--cx, 50%) var(--cy, 50%),
+        rgba(255, 255, 255, 0.24),
+        transparent 16%
+      ),
+      radial-gradient(
+        circle at calc(var(--cx, 50%) + 18%) calc(var(--cy, 50%) + 12%),
+        rgba(102, 213, 255, 0.16),
+        transparent 22%
+      ),
+      radial-gradient(
+        circle at calc(var(--cx, 50%) - 20%) calc(var(--cy, 50%) - 18%),
+        rgba(150, 121, 255, 0.14),
+        transparent 24%
+      );
+    filter: blur(34px);
+    opacity: 0.95;
+    mix-blend-mode: screen;
+  }
+
+  .gradient-background::after {
+    background:
+      radial-gradient(circle at 30% 15%, rgba(255, 255, 255, 0.08), transparent 20%),
+      radial-gradient(circle at 80% 75%, rgba(166, 225, 255, 0.09), transparent 18%),
+      linear-gradient(120deg, rgba(11, 20, 58, 0.5), rgba(20, 64, 126, 0.45));
+    opacity: 0.8;
+  }
+
+  @keyframes rippleMove {
+    0%,
+    100% {
+      background-position:
+        20% 20%,
+        75% 18%,
+        50% 80%,
+        0% 0%;
+    }
+    50% {
+      background-position:
+        35% 30%,
+        60% 25%,
+        40% 70%,
+        0% 0%;
+    }
+  }
+
+  .gradient-background {
+    animation: rippleMove 18s ease-in-out infinite;
+  }
 </style>
 
 <script>
-// niente type="module": se il markup viene iniettato dinamicamente,
-// gli script "module" spesso non partono
-(function () {
-  const background = document.getElementById('gradientBackground');
-  if (!background) return;
+  // niente type="module": se il markup viene iniettato dinamicamente,
+  // gli script "module" spesso non partono
+  (function () {
+    const background = document.getElementById('gradientBackground');
+    if (!background) return;
 
-  const updatePointer = (event) => {
-    const x = (event.clientX / window.innerWidth) * 100;
-    const y = (event.clientY / window.innerHeight) * 100;
-    background.style.setProperty('--cx', `${x}%`);
-    background.style.setProperty('--cy', `${y}%`);
-  };
+    const updatePointer = (event) => {
+      const x = (event.clientX / window.innerWidth) * 100;
+      const y = (event.clientY / window.innerHeight) * 100;
+      background.style.setProperty('--cx', `${x}%`);
+      background.style.setProperty('--cy', `${y}%`);
+    };
 
-  const resetPointer = () => {
-    background.style.setProperty('--cx', '50%');
-    background.style.setProperty('--cy', '50%');
-  };
+    const resetPointer = () => {
+      background.style.setProperty('--cx', '50%');
+      background.style.setProperty('--cy', '50%');
+    };
 
-  window.addEventListener('pointermove', updatePointer);
-  window.addEventListener('pointerleave', resetPointer);
-  window.addEventListener('blur', resetPointer);
-})();
+    window.addEventListener('pointermove', updatePointer);
+    window.addEventListener('pointerleave', resetPointer);
+    window.addEventListener('blur', resetPointer);
+  })();
 </script>

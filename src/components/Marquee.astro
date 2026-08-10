@@ -3,13 +3,8 @@ interface Props {
   items?: string[];
 }
 
-const {
-  items = [
-    'this is just a test',
-    'ahaha cool',
-    'NYC Opens After Long Lockdown Check',
-  ],
-} = Astro.props;
+const { items = ['this is just a test', 'ahaha cool', 'NYC Opens After Long Lockdown Check'] } =
+  Astro.props;
 ---
 
 <marquee width="100%" direction="left">

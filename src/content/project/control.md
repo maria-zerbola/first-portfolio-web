@@ -13,15 +13,18 @@ tags: ['mental-health', 'attention', 'control']
 ---
 
 ## Scenario
+
 By 2050, due to climate change, 50% of coffee plantations will
 become unsuitable for this crop. Most of them belong to
 smallholder farmers.
 
 ## Brief
+
 How might farmers in the tropical belt be more resilient to
 unpredictable conditions and continue profit from their land?
 
 ## Systemic Solution
+
 Mycomadre decodes underground messages from non-human
 species, offering actionable insights to help farmers adapt
 their agricultural practices and foster mutualistic
@@ -30,5 +33,6 @@ It supports also communities through agricultural transitions
 during uncertain times, empowering them to make informed,
 collective decisions for a sustainable future.
 
- ## Simplified Storyboard
+## Simplified Storyboard
+
  <img src="/immagini/portfolio_MyComadre.jpeg" alt="Descrizione" style="margin: 20px; align: center; filter: none; border-radius: 0px;" />

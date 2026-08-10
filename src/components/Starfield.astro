@@ -3,9 +3,7 @@ const count = 200;
 ---
 
 <div class="starfield">
-  {Array.from({ length: count }, (_, i) => (
-    <span class="star" data-index={i}></span>
-  ))}
+  {Array.from({ length: count }, (_, i) => <span class="star" data-index={i} />)}
 </div>
 
 <style>
@@ -53,39 +51,43 @@ const count = 200;
     mouse.y = -9999;
   });
 
-  const REPEL_RADIUS = 120;   // raggio d'influenza del mouse (px)
-  const REPEL_STRENGTH = 60;  // quanto si spostano le particelle (px)
+  const REPEL_RADIUS = 120; // raggio d'influenza del mouse (px)
+  const REPEL_STRENGTH = 60; // quanto si spostano le particelle (px)
 
-  const particles = stars.map((el, index) => {
-    if (index >= maxVisible) {
-      el.style.display = 'none';
-      return null;
-    }
+  const particles = stars
+    .map((el, index) => {
+      if (index >= maxVisible) {
+        el.style.display = 'none';
+        return null;
+      }
 
-    const baseX = Math.random() * window.innerWidth;
-    const baseY = Math.random() * window.innerHeight;
+      const baseX = Math.random() * window.innerWidth;
+      const baseY = Math.random() * window.innerHeight;
 
-    el.textContent = chars[Math.floor(Math.random() * chars.length)];
+      el.textContent = chars[Math.floor(Math.random() * chars.length)];
 
-    // avvia il fade-in
-    requestAnimationFrame(() => { el.style.opacity = '0.5'; });
+      // avvia il fade-in
+      requestAnimationFrame(() => {
+        el.style.opacity = '0.5';
+      });
 
-    return {
-      el,
-      baseX,
-      baseY,
-      // parametri per il floating "organico" (somma di sinusoidi)
-      freq1: 0.2 + Math.random() * 0.3,
-      freq2: 0.15 + Math.random() * 0.25,
-      phase1: Math.random() * Math.PI * 2,
-      phase2: Math.random() * Math.PI * 2,
-      ampX: 60 + Math.random() * 80,
-      ampY: 60 + Math.random() * 80,
-      // smoothing per la repulsione (evita scatti)
-      offsetX: 0,
-      offsetY: 0,
-    };
-  }).filter(Boolean);
+      return {
+        el,
+        baseX,
+        baseY,
+        // parametri per il floating "organico" (somma di sinusoidi)
+        freq1: 0.2 + Math.random() * 0.3,
+        freq2: 0.15 + Math.random() * 0.25,
+        phase1: Math.random() * Math.PI * 2,
+        phase2: Math.random() * Math.PI * 2,
+        ampX: 60 + Math.random() * 80,
+        ampY: 60 + Math.random() * 80,
+        // smoothing per la repulsione (evita scatti)
+        offsetX: 0,
+        offsetY: 0,
+      };
+    })
+    .filter(Boolean);
 
   let t = 0;
 
