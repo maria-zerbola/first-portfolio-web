@@ -1,0 +1,68 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+export async function getStaticPaths() {
+  const article = (await getCollection('article', ({ data }) => !data.draft)).sort(
+    (a, b) => +b.data.date - +a.data.date,
+  );
+
+  return article.map((item, i) => ({
+    params: { slug: item.id },
+    props: {
+      item,
+      prev: article[i + 1],
+      next: article[i - 1],
+    },
+  }));
+}
+
+const { item, prev, next } = Astro.props;
+const { Content } = await render(item);
+
+const fmt = (d: Date) =>
+  `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}`;
+---
+
+<PageLayout
+  title={item.data.bigTitle}
+  description={item.data.excerpt}
+  eyebrow={item.data.pageNumber ?? 'Essay'}
+  heroImage={item.data.cover}
+  pageTitle={`${item.data.title} — Self Esteem`}
+>
+  <div class="item-meta">
+    <span>{item.data.author}</span>
+    <span>{fmt(item.data.date)}</span>
+    <span>{item.data.readTime}</span>
+  </div>
+
+  <hr style="border:0;border-top:1px solid #94918f;margin:32px 0;" />
+
+  <div class="prose">
+    <Content />
+  </div>
+
+  <nav class="item-nav" aria-label="Adjacent essays">
+    {
+      prev ? (
+        <a class="item-nav__prev" href={`/articles/${prev.id}`}>
+          <span>← Previous</span>
+          <strong>{prev.data.bigTitle}</strong>
+        </a>
+      ) : (
+        <span />
+      )
+    }
+    {
+      next ? (
+        <a class="item-nav__next" href={`/articles/${next.id}`}>
+          <span>Next →</span>
+          <strong>{next.data.bigTitle}</strong>
+        </a>
+      ) : (
+        <span />
+      )
+    }
+  </nav>
+</PageLayout>

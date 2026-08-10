@@ -1,8 +1,8 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const posts = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts' }),
+const project = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/project' }),
   schema: z.object({
     title: z.string(),
     bigTitle: z.string(),
@@ -20,26 +20,17 @@ const posts = defineCollection({
   }),
 });
 
-const featured = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/featured' }),
+const article = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/article' }),
   schema: z.object({
     title: z.string(),
     subtitle: z.string(),
     date: z.coerce.date(),
     order: z.number(),
-  }),
-});
-
-const work = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
-  schema: z.object({
-    title: z.string(),
-    year: z.string(),
     cover: z.string(),
     summary: z.string(),
     url: z.string().url().optional(),
-    order: z.number().default(0),
   }),
 });
 
-export const collections = { posts, featured, work };
+export const collections = { project, article };

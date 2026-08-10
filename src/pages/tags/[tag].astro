@@ -3,22 +3,22 @@ import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  const project = await getCollection('project', ({ data }) => !data.draft);
   const tags = new Set<string>();
-  posts.forEach((p) => p.data.tags.forEach((t) => tags.add(t)));
+  project.forEach((p) => p.data.tags.forEach((t) => tags.add(t)));
 
   return [...tags].map((tag) => ({
     params: { tag },
     props: {
       tag,
-      posts: posts
+      project: project
         .filter((p) => p.data.tags.includes(tag))
         .sort((a, b) => +b.data.date - +a.data.date),
     },
   }));
 }
 
-const { tag, posts } = Astro.props;
+const { tag, project } = Astro.props;
 const fmt = (d: Date) =>
   `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}`;
 ---
@@ -26,13 +26,13 @@ const fmt = (d: Date) =>
 <PageLayout
   title={`#${tag}`}
   eyebrow="Tag"
-  description={`${posts.length} essay${posts.length === 1 ? '' : 's'} tagged ${tag}.`}
+  description={`${project.length} essay${project.length === 1 ? '' : 's'} tagged ${tag}.`}
 >
-  <p><a href="/thoughts">← All essays</a></p>
+  <p><a href="/portfolio">← All essays</a></p>
   <div class="post-list">
     {
-      posts.map((post) => (
-        <a class="post-card" href={`/thoughts/${post.id}`}>
+      project.map((post) => (
+        <a class="post-card" href={`/portfolio/${post.id}`}>
           <div class="post-card__cover">
             <img src={post.data.cover} alt="" loading="lazy" />
           </div>

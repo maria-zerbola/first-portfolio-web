@@ -3,16 +3,16 @@ import { getCollection, render } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  const project = (await getCollection('project', ({ data }) => !data.draft)).sort(
     (a, b) => +b.data.date - +a.data.date,
   );
 
-  return posts.map((post, i) => ({
+  return project.map((post, i) => ({
     params: { slug: post.id },
     props: {
       post,
-      prev: posts[i + 1],
-      next: posts[i - 1],
+      prev: project[i + 1],
+      next: project[i - 1],
     },
   }));
 }
@@ -56,7 +56,7 @@ const fmt = (d: Date) =>
   <nav class="post-nav" aria-label="Adjacent essays">
     {
       prev ? (
-        <a class="post-nav__prev" href={`/thoughts/${prev.id}`}>
+        <a class="post-nav__prev" href={`/portfolio/${prev.id}`}>
           <span>← Previous</span>
           <strong>{prev.data.bigTitle}</strong>
         </a>
@@ -66,7 +66,7 @@ const fmt = (d: Date) =>
     }
     {
       next ? (
-        <a class="post-nav__next" href={`/thoughts/${next.id}`}>
+        <a class="post-nav__next" href={`/portfolio/${next.id}`}>
           <span>Next →</span>
           <strong>{next.data.bigTitle}</strong>
         </a>
