@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Menu from '../components/Menu.astro';
+import StickyHeader from '../components/StickyHeader.astro';
+import FeaturedArticle from '../components/FeaturedArticle.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const project = await getCollection('project', ({ data }) => data.featured);
+const article = await getCollection('article');
+
+const pinned = project[0];
+project.sort((a, b) => +b.data.date - +a.data.date);
+---
+
+<BaseLayout>
+  <div class="blog">
+    <Menu />
+    <StickyHeader
+      title="MZ"
+      pinnedLabel="systemic innovation"
+      pageNumber={pinned?.data.pageNumber ?? 'scroll to see more'}
+    />
+
+    <div class="blog-header-container">
+      {
+        project.map((post) => (
+          <FeaturedArticle
+            bigTitle={post.data.bigTitle}
+            date={post.data.date}
+            emphasis={post.data.emphasis}
+            headline={post.data.headline}
+            cover={post.data.cover}
+            author={post.data.author}
+            readTime={post.data.readTime}
+            excerpt={post.data.excerpt}
+            href={`/portfolio/${post.id}`}
+          />
+        ))
+      }
+    </div>
+
+    <Sidebar entries={article} />
+  </div>
+</BaseLayout>
