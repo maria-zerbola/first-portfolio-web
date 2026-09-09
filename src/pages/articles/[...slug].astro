@@ -25,16 +25,17 @@ const fmt = (d: Date) =>
 ---
 
 <PageLayout
-  title={item.data.bigTitle}
+  title={item.data.title}
   description={item.data.excerpt}
-  eyebrow={item.data.pageNumber ?? 'Essay'}
+  eyebrow={item.data.pageNumber ?? 'Reflections'}
   heroImage={item.data.cover}
-  pageTitle={`${item.data.title} — Self Esteem`}
+  pageTitle={`${item.data.title} — Maria Zerbola`}
+  accentColor={item.data.accentColor}
 >
   <div class="item-meta">
     <span>{item.data.author}</span>
     <span>{fmt(item.data.date)}</span>
-    <span>{item.data.readTime}</span>
+    <span>{item.data.context}</span>
   </div>
 
   <hr style="border:0;border-top:1px solid #94918f;margin:32px 0;" />
@@ -43,12 +44,14 @@ const fmt = (d: Date) =>
     <Content />
   </div>
 
+  <hr style="margin-bottom:3rem;"/> 
+
   <nav class="item-nav" aria-label="Adjacent essays">
     {
       prev ? (
         <a class="item-nav__prev" href={`/articles/${prev.id}`}>
           <span>← Previous</span>
-          <strong>{prev.data.bigTitle}</strong>
+          <strong>{prev.data.title}</strong>
         </a>
       ) : (
         <span />
@@ -58,7 +61,7 @@ const fmt = (d: Date) =>
       next ? (
         <a class="item-nav__next" href={`/articles/${next.id}`}>
           <span>Next →</span>
-          <strong>{next.data.bigTitle}</strong>
+          <strong>{next.data.title}</strong>
         </a>
       ) : (
         <span />

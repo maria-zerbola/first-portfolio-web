@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
+import ProjectToc from '../../components/ProjectToc.astro';
 
 export async function getStaticPaths() {
   const project = (await getCollection('project', ({ data }) => !data.draft)).sort(
@@ -18,25 +19,18 @@ export async function getStaticPaths() {
 }
 
 const { post, prev, next } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 
-const fmt = (d: Date) =>
-  `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}`;
 ---
 
 <PageLayout
   title={post.data.bigTitle}
   description={post.data.excerpt}
   eyebrow={post.data.pageNumber ?? 'Essay'}
-  heroImage={post.data.cover}
   pageTitle={`${post.data.title} — Self Esteem`}
+  accentColor={post.data.accentColor}
 >
-  <div class="post-meta">
-    <span>{post.data.author}</span>
-    <span>{fmt(post.data.date)}</span>
-    <span>{post.data.readTime}</span>
-  </div>
-
+  
   {
     post.data.tags.length > 0 && (
       <div class="tag-list" style="margin-top: 24px;">
@@ -48,9 +42,23 @@ const fmt = (d: Date) =>
   }
 
   <hr style="border:0;border-top:1px solid #94918f;margin:32px 0;" />
+  
+  <img src={post.data.cover}>
+
+  <ProjectToc headings={headings} accentColor={post.data.accentColor} />
 
   <div class="prose">
     <Content />
+  </div>
+
+  <hr style="border:0;border-top:1px solid #94918f;margin:32px 0;" />
+
+  <div class="post-meta">
+    <span style="display: flex; gap: 3rem;"> 
+      <span> <b style="font-style: normal; font-family: 'Space Grotesk', sans-serif;"> WHEN: </b> {post.data.time}</span>
+      <span> <b style="font-style: normal; font-family: 'Space Grotesk', sans-serif;"> WHERE: </b> {post.data.context}</span>
+    </span>
+    <span style="white-space: pre-wrap;"><b style="font-style: normal; font-family: 'Space Grotesk', sans-serif;">WHO: </b> {post.data.author}</span>
   </div>
 
   <nav class="post-nav" aria-label="Adjacent essays">

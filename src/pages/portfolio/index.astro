@@ -1,10 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
+import Starfield from '../../components/Starfield.astro';
 
 const project = (await getCollection('project', ({ data }) => !data.draft)).sort(
   (a, b) => +b.data.date - +a.data.date,
 );
+
+const allTags = [...new Set(project.flatMap((p) => p.data.tags))].sort();
 
 const fmt = (d: Date) =>
   `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}`;
@@ -16,10 +19,43 @@ const renderHeadline = (headline: string, emphasis?: string) => {
 ---
 
 <PageLayout
-  title="The Blog"
-  eyebrow="Journal"
-  description="Essays, field notes, and longer reads from Self Esteem."
+  title="My works"
+  eyebrow="Portfolio"
+  description="Personal and academic product service system design projects"
 >
+   {allTags.length > 0 && (
+    <div class="tag-scroller">
+      <button class="tag-scroller__arrow tag-scroller__arrow--left" aria-label="Scorri a sinistra">←</button>
+      <nav class="tag-list tag-scroller__track">
+         {allTags.map((tag) => <a href={`/tags/${tag}`}>{tag}</a>)}
+      </nav>
+      <button class="tag-scroller__arrow tag-scroller__arrow--right" aria-label="Scorri a destra">→</button>
+    </div>
+  )}
+
+  <script>
+    document.querySelectorAll('.tag-scroller').forEach((scroller) => {
+      const track = scroller.querySelector('.tag-scroller__track');
+      const left = scroller.querySelector('.tag-scroller__arrow--left');
+      const right = scroller.querySelector('.tag-scroller__arrow--right');
+      if (!track || !left || !right) return;
+
+      const update = () => {
+        left.classList.toggle('is-hidden', track.scrollLeft <= 0);
+        right.classList.toggle(
+          'is-hidden',
+          track.scrollLeft + track.clientWidth >= track.scrollWidth - 1,
+        );
+      };
+
+      left.addEventListener('click', () => track.scrollBy({ left: -200, behavior: 'smooth' }));
+      right.addEventListener('click', () => track.scrollBy({ left: 200, behavior: 'smooth' }));
+      track.addEventListener('scroll', update);
+      window.addEventListener('resize', update);
+      update();
+    });
+  </script>
+
   <div class="post-list">
     {
       project.map((post) => {
@@ -30,9 +66,6 @@ const renderHeadline = (headline: string, emphasis?: string) => {
               <img src={post.data.cover} alt="" loading="lazy" />
             </div>
             <div>
-              <div class="post-card__meta">
-                {fmt(post.data.date)} · {post.data.author} · {post.data.readTime}
-              </div>
               <h2 class="post-card__title">
                 {parts.map((part, i) => (i % 2 === 1 ? <span>{part}</span> : <>{part}</>))}
               </h2>
@@ -51,3 +84,4 @@ const renderHeadline = (headline: string, emphasis?: string) => {
     }
   </div>
 </PageLayout>
+<Starfield />

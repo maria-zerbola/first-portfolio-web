@@ -1,0 +1,98 @@
+---
+interface Slide {
+	src: string;
+	alt?: string;
+	caption?: string;
+}
+
+interface Props {
+	images?: Slide[];
+	autoplay?: boolean;
+	interval?: number;
+}
+
+const {
+	images = [],
+	autoplay = false,
+	interval = 5000,
+} = Astro.props;
+const carouselId = `carousel-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<section
+	class="carousel"
+	id={carouselId}
+	aria-roledescription="carousel"
+	aria-label="Image carousel"
+	data-autoplay={autoplay}
+	data-interval={interval}
+>
+	{images.length > 0 ? (
+		<div class="viewport">
+			<div class="track">
+				{images.map((image, index) => (
+					<article
+						class="slide"
+						role="group"
+						aria-roledescription="slide"
+						aria-label={`${index + 1} of ${images.length}`}
+						aria-hidden={index !== 0}
+					>
+						<img src={image.src} alt={image.alt ?? ''} loading={index === 0 ? 'eager' : 'lazy'} />
+						{image.caption && <p class="caption">{image.caption}</p>}
+					</article>
+				))}
+			</div>
+		</div>
+		<button class="control previous" type="button" aria-label="Previous image">‹</button>
+		<button class="control next" type="button" aria-label="Next image">›</button>
+		<div class="dots" aria-label="Choose an image">
+			{images.map((_, index) => (
+				<button class="dot" type="button" aria-label={`Go to image ${index + 1}`} aria-current={index === 0 ? 'true' : undefined}></button>
+			))}
+		</div>
+	) : (
+		<p class="empty">Add images to display the carousel.</p>
+	)}
+</section>
+
+<style>
+	.carousel { position: relative; max-width: 900px; margin: 0 auto; padding: 3rem 0rem; }
+	.viewport { overflow: hidden; border-radius: 0.75rem; background: #f1f5f9; }
+	.track { display: flex; transition: transform 350ms ease; }
+	.slide { position: relative; min-width: 100%; }
+	.slide img { display: block; width: 100%; height: auto; object-fit: cover; }
+	.caption { position: absolute; right: 0; bottom: 0; left: 0; margin: 0; padding: 0.75rem 1rem; color: #fff; background: rgb(0 0 0 / 60%); }
+	.control { position: absolute; top: 50%; z-index: 1; width: 2.5rem; height: 2.5rem; border: 0; border-radius: 50%; color: #fff; background: rgb(15 23 42 / 75%); font-size: 2rem; line-height: 1; cursor: pointer; transform: translateY(-50%); }
+	.control:hover, .control:focus-visible { background: #0f172a; }
+	.previous { left: 1rem; } .next { right: 1rem; }
+	.dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+	.dot { width: 0.7rem; height: 0.7rem; padding: 0; border: 0; border-radius: 50%; background: #cbd5e1; cursor: pointer; }
+	.dot[aria-current='true'] { background: #0f172a; }
+	.empty { padding: 3rem; color: #64748b; text-align: center; background: #f8fafc; }
+	@media (prefers-reduced-motion: reduce) { .track { transition: none; } }
+</style>
+
+{images.length > 1 && <script define:vars={{ carouselId }}>
+	const carousel = document.getElementById(carouselId);
+	if (carousel) {
+		const track = carousel.querySelector('.track');
+		const slides = [...carousel.querySelectorAll('.slide')];
+		const dots = [...carousel.querySelectorAll('.dot')];
+		let current = 0;
+		let timer;
+		const goTo = (index) => {
+			current = (index + slides.length) % slides.length;
+			track.style.transform = `translateX(-${current * 100}%)`;
+			slides.forEach((slide, i) => slide.setAttribute('aria-hidden', String(i !== current)));
+			dots.forEach((dot, i) => dot.setAttribute('aria-current', i === current ? 'true' : 'false'));
+		};
+		carousel.querySelector('.previous').addEventListener('click', () => goTo(current - 1));
+		carousel.querySelector('.next').addEventListener('click', () => goTo(current + 1));
+		dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+		if (carousel.dataset.autoplay === 'true') {
+			timer = setInterval(() => goTo(current + 1), Number(carousel.dataset.interval) || 5000);
+			carousel.addEventListener('mouseenter', () => clearInterval(timer));
+		}
+	}
+</script>}

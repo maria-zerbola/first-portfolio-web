@@ -5,12 +5,14 @@ const project = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/project' }),
   schema: z.object({
     title: z.string(),
+    accentColor: z.string().default('#000000'),
     bigTitle: z.string(),
     emphasis: z.string().optional(),
     headline: z.string(),
     excerpt: z.string(),
+    time: z.string().optional(),
     author: z.string(),
-    readTime: z.string().default('5 Min Read'),
+    context: z.string().default('Personal Project'),
     date: z.coerce.date(),
     cover: z.string(),
     featured: z.boolean().default(false),
@@ -21,15 +23,17 @@ const project = defineCollection({
 });
 
 const article = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/article' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/article' }),
   schema: z.object({
     title: z.string(),
     subtitle: z.string(),
+    accentColor: z.string().default('#000000'),
     date: z.coerce.date(),
-    order: z.number(),
+    order: z.number().optional(),
     cover: z.string(),
     summary: z.string(),
     url: z.string().url().optional(),
+    draft: z.boolean().default(false),
   }),
 });
 

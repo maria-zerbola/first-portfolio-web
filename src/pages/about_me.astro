@@ -1,36 +1,199 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import Starfield from '../components/Starfield.astro';
 ---
 
 <PageLayout
-  title="The Studio"
-  eyebrow="About"
-  description="Self Esteem is a small editorial studio publishing essays on attention, motivation, and the work of being a person in 2026."
+  title="Hi, I'm Maria"
+  eyebrow="About me"
+  description="I'm a postgraduate student at Politecnico di Milano, pursuing a double master degree in Product Service System Design and Management Engineering. I am interested in exploring the interdiscipinarity between design and management through business innovation, service design, strategic design or organizational change."
+  accentColor="blue"
 >
   <div class="prose">
-    <p>
-      We are a small, distributed group of writers and editors. We publish slowly — usually one
-      essay a month, occasionally a longer issue. We do not chase breaking news. We are interested
-      in what survives the silence after.
-    </p>
+    <details>
+      <summary>Education</summary>
+      <ul>
+        <li><h3>MSc in Management Engineering - Politecnico di Milano (MI Italy)</h3>
+          <p><strong>From:</strong> 02/2025 <strong>To:</strong> 09/2027 expected <br/><strong>Grade average:</strong> 28.2/30</p> 
+          <details><summary style="color: #1cc294; font-size: 21px; margin-top:0.5rem; color: $subtitle-color;">Main subjects covered:</summary>            
+            <ul>
+              <div class="text-columns" style="margin-top: 8px; margin-bottom: 24px;">
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Strategic Innovation</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Agile, Lean and Sprint Methodologies</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Design Thinking for Business and Participatory Methodologies</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Planning and Control</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Logistic and Supply Chain Processes and Innovation</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Business Model Re-design and Innovation</p></li>
+              </div>
+            </ul>
+          </details> 
+        </li>
 
-    <h2>What we publish</h2>
-    <p>
-      Long-form essays, occasional interviews, and reading lists. Most issues sit on a single
-      question and turn it over for ten or twelve pages. Nothing is sponsored. Nothing is paywalled.
-    </p>
+        <li><h3>MSc in Product Service System Design - Politecnico di Milano (MI Italy)</h3>
+         <p><strong>From:</strong> 09/2025 <strong>To:</strong> 09/2027 expected <br/><strong>Grade average:</strong> 28.2/30</p>
+          <details><summary style="color: #1cc294; font-size: 21px; margin-top:0.5rem; color: $subtitle-color;">Main subjects covered:</summary>            
+            <ul>
+              <div class="text-columns" style="margin-top: 8px; margin-bottom: 24px;">
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Service Design</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Public and Social Innovation</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Innovation of Meaning</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">UX and User Research</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Systemic Design</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Team projects and teambuilding</p></li>
+              </div>
+            </ul>
+          </details>
+        </li>
 
-    <h2>People</h2>
-    <ul>
-      <li><strong>Richard Carnation</strong> — editor, essays on attention.</li>
-      <li><strong>Scarlett Witch</strong> — writer, mental health and care.</li>
-      <li><strong>Tom Hiddleston</strong> — writer, love and vulnerability.</li>
-    </ul>
+        <li><h3>BSc in Design and Communication - Politecnico di Torino (TO Italy)</h3>
+         <p><strong>From:</strong> 09/2020 <strong>To:</strong> 07/2024 <br/><strong>Final grade:</strong> 109/110<strong> - Recognition:</strong>Thesis Worthy of Merit<br/> <strong>Thesis:</strong> <a href="portfolio/liberamente">"Liberamente: A Well-Care Design practice to overcome bedtime procrastination."</a></p>
+          <details><summary style="color: #1cc294; font-size: 21px; margin-top:0.5rem; color: $subtitle-color;">Main subjects covered:</summary>            
+            <ul>
+              <div class="text-columns" style="margin-top: 8px; margin-bottom: 24px;">
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Product Industrial Design</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Material sciences and physics</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Project requirements planning</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Antropology and cognitive ergonomy</p></li> <br/>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Innovation and product development</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Exhibit design (light and sound)</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Storytelling and communication</p></li>
+              </div>
+            </ul>
+          </details> 
+        </li>
 
-    <h2>Get in touch</h2>
-    <p>
-      Reach us via the <a href="/contacts">contact page</a>. We read everything and reply to most
-      things.
-    </p>
+        <li><h3>Exchange Student in Timber Creek High School (TX United States)</h3>
+          <p><strong>From:</strong> 08/2017 <strong>To:</strong> 06/2018 <br/><strong>Academic recognition:</strong> <a href="https://apcentral.collegeboard.org/exam-administration-ordering-scores/scores/awards/scholar-awards">AP Scholar with Honor Award </a></p>
+          <details><summary style="color: #1cc294; font-size: 21px; margin-top:0.5rem; color: $subtitle-color;">Main subjects covered:</summary>            
+            <ul>
+              <div class="text-columns" style="margin-top: 8px; margin-bottom: 24px;">
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">AP English Language and Literature</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">AP American History</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">AP Chemistry</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">AP Physics</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Physiology and Health Research</p></li>
+                <li ><p style="margin: 0.5rem 0rem 0.5rem 0rem;">Pre-Calculus</p></li>
+              </div>
+            </ul>
+          </details>       
+        </li>
+      </ul>
+    </details>
+   
+    <details>
+      <summary>Work Experience</summary>
+      <ul>
+        <li><h3>Freelance Communication Specialist for Italian non-profit</h3>
+          <p><strong>From:</strong> 02/2026 <strong>To:</strong> - ongoing</p>
+          <p> Hope Club ODV contacted me to guide them in improving the communication of their activities, particularly to reach new audiences in occasion of their Missione Popolare 2026. I introduced them to social media advertising, made their website visible (from not indexed to first page) and reached sold-out on their latest event.</p>      
+        </li>
+        <li><h3>Teaching Assistant in Data-Centric Service Design</h3>
+          <p><strong>From:</strong> 02/2026 <strong>To:</strong> 06/2026</p>
+          <p> I contributed to the smooth running of the course by managing attendance and groups formation, as well as monitoring and reporting ongoing students' feedbacks. I also had the opportunity to interact with guest lecturers on different related topics.</p>
+        </li>
+        <li><h3>Social Media Specialist for Digital Transition in Parapharmacy</h3>
+          <p><strong>From:</strong> 11/2023 <strong>To:</strong> 10/2024</p>
+          <p> Within an ambitious digital transition (PNNR) I was the internal resource responsible for mediating between the organizational culture and an external communication agency. I also contributed to the design of the brand identity and to curating the digital presence of the brand on social media and the website.</p>
+        </li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Internships and Other Formative Experiences</summary>
+      <ul>
+        <li><h3>Career Mentoring for Women with Startuppers</h3>
+          <p><strong>From:</strong> 09/2025 <strong>To:</strong> 11/2025</p>
+          <p> Selvaggia Fagioli shared her insider knowledge on best practices for successful venturing. After the final networking event I interacted with a few startups and joined one briefly, contributing mainly to sales and customer relations.</p>
+        </li>
+        <li><h3>Student Service Design Challenge Finalist: SPONTANEA</h3>
+          <p><strong>From:</strong> 01/2025 <strong>To:</strong> 06/2025</p>
+          <p>A semester long formative journey, mentored by IBM strategy designer Maria Sanchez. Within an international team of experienced designers I brought my understanding of the italian systemic sociocultural context, translating our research into a clear problem statement. I integrated physical touchpoints into UX, and curated visual communication.</p>
+        </li>
+        <li><h3>Product and Interior Designer - extracurricular internship</h3>
+          <p><strong>From:</strong> 02/2024 <strong>To:</strong> 07/2024</p>
+          <p> While writing my thesis I reached out to Cuperfrigor. I introduced them to rendering as a tool to interact with their customers, it proved an appreciated service. I followed different bespoke projects from concept to technical drawings.</p>
+        </li>
+        <li><h3>Product and Interior Designer - curricular internship</h3>
+          <p><strong>From:</strong> 05/2023 <strong>To:</strong> 07/2023</p>
+          <p> I carried out different projects of luxury furniture from research and concept ideation to technical drawings and prototyping. I experimented with different materials and was introduced to sculptural sketching.</p>
+        </li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Languages</summary>
+      <ul>
+        <li><strong>Italian:</strong> native speaker </li>
+        <li><strong>English:</strong> C2 Proficiency (certified: IELTS 8.5)</li>
+      </p>
+    </details>
+
+    <div class="text-columns" style="padding:3rem; columns: 3;">
+     <h3>Hard Skills</h3>
+      <ul>
+        <li>Service design mapping (journey, offering, stakeholders, system, blueprint)</li>
+        <li> user research </li>
+        <li> 2D and 3D visualization </li>
+        <li> design thinking facilitation </li>
+        <li> storytelling </li>
+        <li> innovation of meaning method </li>
+        <li> BM and value proposition canvas </li>
+      </ul>
+      
+     <h3>Soft Skills</h3>
+      <ul>
+        <li>Teamwork</li>
+        <li> proactivity </li>
+        <li> public speaking/relation/presenting </li>
+        <li> intutition </li>
+        <li> intercultural empathy </li>
+        <li> problem solving </li>
+      </ul> 
+      <h3>Softwares</h3>
+      <ul>
+        <li>Microsoft Suite: Excel </li>
+        <li> Figma, Miro, Notion </li>
+        <li> Claude, Gemini </li>
+        <li> Adobe Suite</li>
+        <li>Rhino, Blender</li>
+      </ul>
+
+
+    </div>   
+
+    <details>
+      <summary>Hobbies and Activities</summary>
+      <ul>
+        <li>Acrobatics and aerial acrobatics </li>
+        <li>Volounteering and community</li>
+        <li>Artistic training: theatre, singing,piano, dance</li>
+      </p>
+    </details>
+
+    <div class="wip-links">
+      <a
+        href="https://www.linkedin.com/in/mariazerbola"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="linkedin-link"
+        aria-label="Profilo LinkedIn"
+      >
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" data-astro-cid-2j44jlrm="" fill="white" style="border-radius: inherit;"> 
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" data-astro-cid-2j44jlrm=""></path>
+        </svg>
+      </a>
+      <a
+        href="mailto:mariazerbola.design@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="email-link"
+        aria-label="email address"
+      >
+        <svg viewBox="0 0 8 8" width="30" aria-hidden="true" data-astro-cid-2j44jlrm="" fill="$subtitle-color" style="background-color: white;padding: 3px 1px 0px; border-radius: inherit;" height="20"> 
+          <path d="m0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z" data-astro-cid-2j44jlrm=""></path> 
+        </svg>
+      </a>
+    </div> 
   </div>
 </PageLayout>
+<Starfield />

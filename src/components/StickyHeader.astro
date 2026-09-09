@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { title, pinnedLabel = 'Pinned Issue', pageNumber = 'NO. 01' } = Astro.props;
+const  { items = ['this is just a test', 'ahaha cool', 'NYC Opens After Long Lockdown Check'] } = Astro.props;
 ---
 
 <div class="blog-header blog-is-sticky">
@@ -17,3 +18,4 @@ const { title, pinnedLabel = 'Pinned Issue', pageNumber = 'NO. 01' } = Astro.pro
     {pageNumber}
   </div>
 </div>
+

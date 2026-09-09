@@ -5,9 +5,11 @@ emphasis: 'Notes'
 headline: '{emphasis} On Stillness'
 excerpt: 'Short field reports from the practice of doing nothing, deliberately.'
 author: 'Richard Carnation'
-readTime: '4 Min Read'
+context: '4 Min Read'
 date: 2022-01-15
 cover: 'https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?auto=format&fit=crop&w=1600&q=70'
+featured: true
+draft: true
 tags: ['quiet', 'attention']
 ---
 

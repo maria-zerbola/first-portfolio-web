@@ -1,0 +1,71 @@
+<div class="modal-overlay" id="global-image-modal">
+  <div class="modal-content">
+    <button class="modal-close" id="global-modal-close">✕</button>
+    <img id="global-modal-img" src="" alt="" />
+  </div>
+</div>
+<style>
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  .modal-overlay.active {
+    display: flex;
+    pointer-events: auto;
+    margin-top: 0em;
+  }
+  .modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 80vh;
+  }
+  .modal-content img {
+    max-width: 90vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    display: block;
+  }
+  .modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+</style>
+<script>
+  const modal = document.getElementById('global-image-modal');
+  const img = document.getElementById('global-modal-img');
+  const closeBtn = document.getElementById('global-modal-close');
+
+  window.addEventListener('open-image-modal', (e) => {
+    img.src = e.detail.src;
+    img.alt = e.detail.alt || 'Immagine';
+    modal?.classList.add('active');
+  });
+
+  closeBtn?.addEventListener('click', () => modal?.classList.remove('active'));
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('active');
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!modal?.classList.contains('active')) return;
+    modal.classList.remove('active');
+  });
+
+</script>
