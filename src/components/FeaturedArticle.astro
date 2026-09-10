@@ -27,29 +27,31 @@ const parts = emphasis ? headline.split('{emphasis}') : [headline];
 
 <div class="blog-header" style={`--accent: ${accentColor}`}>
   <div class="blog-article header-article">
-    <div class="blog-big__title">{bigTitle}</div>
+    <div class="blog-big__title" href={href}>{bigTitle}</div>
     <hr style="margin-top: 53px; border:0; border-top: 1px solid #94918f;"/>
   </div>
   <div class="blog-article">
-    <img href={href} src={cover} alt={bigTitle} />
-    <h2>
-      {
-        emphasis ? (
-          <>
-            {parts[0]}
-            <span>{emphasis}</span>
-            {parts[1]}
-          </>
-        ) : (
-          headline
-        )
-      }
-    </h2>
+    <img src={cover} alt={bigTitle} />
+    <a href={href} style="text-decoration: none; color: inherit; border:0; display:grid;">
+      <h2>
+        {
+          emphasis ? (
+            <>
+              {parts[0]}
+              <span>{emphasis}</span>
+              {parts[1]}
+            </>
+          ) : (
+            headline
+          )
+        }
+      </h2>
+    </a>
     <div class="blog-detail">
       <span>{context}</span>
     </div>
     <p>{excerpt}</p>
-    <a href={href}>
+    <a class="arrow" href={href}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -67,3 +69,31 @@ const parts = emphasis ? headline.split('{emphasis}') : [headline];
     </a>
   </div>
 </div>
+
+<style>
+  .blog-article p {
+    @media screen and (max-width: 560px) {
+      display: none;
+    }
+  }
+
+  .blog-detail span {
+     @media screen and (max-width: 560px) {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #94918f;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .blog-article a {
+    @media screen and (max-width: 560px) {
+      padding-bottom: 14px;
+    }
+  }
+  
+  .arrow {
+    @media screen and (max-width: 560px) {
+      display: none;
+    }
+  }
+</style>

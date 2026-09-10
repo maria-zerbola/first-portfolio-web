@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Menu from '../components/Menu.astro';
+import SiteNav from '../components/SiteNav.astro';
 import StickyHeader from '../components/StickyHeader.astro';
 import FeaturedArticle from '../components/FeaturedArticle.astro';
 import Sidebar from '../components/Sidebar.astro';
@@ -13,8 +14,9 @@ const article = await getCollection('article', ({ data }) => !data.draft);
 const pinned = project[0];
 project.sort((a, b) => +b.data.date - +a.data.date);
 ---
-<Starfield />
+<Starfield /> 
 <BaseLayout>
+  <SiteNav mobileOnly />
   <div class="blog">
     <Menu />
     <StickyHeader
