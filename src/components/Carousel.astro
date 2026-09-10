@@ -38,6 +38,12 @@ const { slides } = Astro.props;
     gap: 2rem;
     margin: 0rem 0;
     align-items: start;
+    
+    
+
+    @media screen and (max-width: 560px){
+      display: grid;
+    }
   }
 
   .carousel-display {
@@ -49,6 +55,7 @@ const { slides } = Astro.props;
 
   .carousel-text-wrapper {
     flex: 0 0 68%;
+    min-width: 0;
     padding: 1rem;
     border-radius: 8px;
     display: grid;

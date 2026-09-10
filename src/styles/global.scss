@@ -86,6 +86,7 @@ body {
     display: flex;
     letter-spacing: -0.5px;
     align-items: center;
+    white-space: nowrap;
 
     @media screen and (max-width: 1260px) {
       font-size: 1.6vw;
@@ -180,11 +181,11 @@ body {
     text-wrap-mode: nowrap;
 
     @media screen and (max-width: 1400px) {
-      font-size: 120px;
+      font-size: 80px;
     }
 
     @media screen and (max-width: 1260px) {
-      font-size: 9vw;
+      font-size: 7vw;
       letter-spacing: -2px;
     }
 
@@ -226,7 +227,7 @@ body {
   white-space: wrap;
 
   @media screen and (max-width: 1260px) {
-    font-size: 5vw;
+    font-size: 24px;
   }
 }
 
@@ -356,6 +357,7 @@ marquee {
   .rounded {
     font-style: italic;
     font-size: 18px;
+    
     &:before {
       content: '';
       border-radius: 50%;
@@ -962,6 +964,9 @@ html {
     color: var(--accent, $title-color); 
     cursor: pointer;
     line-height: 1;
+
+    padding-left: 0.9em;   // spazio tra freccia e testo, regola a occhio
+    text-indent: -0.9em;
   }
 
   a {
@@ -1050,6 +1055,30 @@ html {
     }
   }
 
+  .three-columns {
+    columns: 3;
+    column-gap: 4rem;
+    column-rule: 1px solid $border-color; // opzionale: linea tra colonne
+    margin-top: 40px;
+    padding: 3rem;
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    h3:first-child {
+      margin-top: 0;
+    }
+
+    @media screen and (max-width: 560px) {
+    columns: 1;
+    border-left: 3px dotted $border-color;
+    border-right: 3px dotted $border-color;
+    padding: 1rem 3rem;
+    }
+  }
+
+
   /* Stile della singola riga (immagine + testo) */
   .item-row {
     display: flex;             /* Attiva l'allineamento orizzontale */
@@ -1090,6 +1119,7 @@ html {
     font-size: 22px;
     letter-spacing: -1px;
     color: var(--accent, $title-color);
+    text-decoration: none;
 
     span {
       font-family: $italic-font;

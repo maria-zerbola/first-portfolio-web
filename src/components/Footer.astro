@@ -4,13 +4,14 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <div class="site-footer__brand">MariaZerbola<span>Portfolio</span></div>
+    <a class="site-footer__brand" href="/"><span>MariaZerbola</span> Portfolio</a>    
     <nav class="site-footer__nav" aria-label="Footer">
       <a href="/">Home</a>
       <a href="/portfolio">Portfolio</a>
       <a href="/articles">Articles</a>
       <a href="/about_me">About me</a>
-      <a
+      <div style="white-space:nowrap; display: flex;gap: 1rem;">
+        <a
           href="https://www.linkedin.com/in/mariazerbola"
           target="_blank"
           rel="noopener noreferrer"
@@ -33,6 +34,7 @@ const year = new Date().getFullYear();
             <path d="m0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z" data-astro-cid-2j44jlrm=""></path> 
           </svg>
         </a>
+      </div>
     </nav>
     <div class="site-footer__meta">© {year} Maria Zerbola</div>
   </div>
