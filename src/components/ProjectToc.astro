@@ -23,43 +23,51 @@ const circonferenza = 2 * Math.PI * raggio;
   items.length > 0 && (
     <nav class="project-toc" aria-label="Indice del progetto">
       <ul>
-        {items.map((item) => {const buco = item.text.length * 7;
+        {items.map((item) => {
+          const buco = item.text.length * 7;
           const pieno = circonferenza - buco;
           return (
-          <li>
-            <a href={`#${item.slug}`}>
-              <svg width="120" height="120" viewBox="0 0 120 120">
-                <circle cx="60" cy="60" r="25" fill={accentColor} />
-                <circle
-                  cx="60" cy="60" r={raggio}
-                  fill="none"
-                  stroke="#000"
-                  stroke-width="1.5"
-                  stroke-dasharray={`${pieno} ${buco}`}
-                  transform="rotate(140 60 60)"
-                />
-                <path
+            <li>
+              <a href={`#${item.slug}`}>
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="25" fill={accentColor} />
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r={raggio}
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="1.5"
+                    stroke-dasharray={`${pieno} ${buco}`}
+                    transform="rotate(140 60 60)"
+                  />
+                  <path
                     id={`curva-${item.slug}`}
                     d={`M ${60 - raggio} 60 A ${raggio} ${raggio} 0 1 0 59.9 ${60 - raggio}`}
                     fill="none"
                     transform="rotate(-48 60 60)"
-                />
-                <text font-size="12" font-weight="bold">
-                  <textPath href={`#curva-${item.slug}`} startOffset="0%">
-                    {item.text}
-                  </textPath>
-                </text>
-              </svg>
-            </a>
-          </li>
-        );
+                  />
+                  <text font-size="12" font-weight="bold">
+                    <textPath href={`#curva-${item.slug}`} startOffset="0%">
+                      {item.text}
+                    </textPath>
+                  </text>
+                </svg>
+              </a>
+            </li>
+          );
         })}
       </ul>
-      <a href="#top" class="project-toc__top"> 
-        <text font-size="12" font-weight="bold"> TOP </text>
+      <a href="#top" class="project-toc__top">
+        <text font-size="12" font-weight="bold">
+          {' '}
+          TOP{' '}
+        </text>
         <svg width="120" height="40" viewBox="0 0 120 40">
           <circle
-            cx="60" cy="-30" r={raggio}
+            cx="60"
+            cy="-30"
+            r={raggio}
             fill="none"
             stroke="#000"
             stroke-width="1.5"
@@ -101,7 +109,6 @@ const circonferenza = 2 * Math.PI * raggio;
       gap: 8px;
     }
 
-    
     &__top {
       display: grid;
       margin-top: 30px;

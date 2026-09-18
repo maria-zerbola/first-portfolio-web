@@ -23,15 +23,26 @@ const renderHeadline = (headline: string, emphasis?: string) => {
   eyebrow="Portfolio"
   description="Personal and academic product service system design projects"
 >
-   {allTags.length > 0 && (
-    <div class="tag-scroller">
-      <button class="tag-scroller__arrow tag-scroller__arrow--left" aria-label="Scorri a sinistra">←</button>
-      <nav class="tag-list tag-scroller__track">
-         {allTags.map((tag) => <a href={`/tags/${tag}`}>{tag}</a>)}
-      </nav>
-      <button class="tag-scroller__arrow tag-scroller__arrow--right" aria-label="Scorri a destra">→</button>
-    </div>
-  )}
+  {
+    allTags.length > 0 && (
+      <div class="tag-scroller">
+        <button
+          class="tag-scroller__arrow tag-scroller__arrow--left"
+          aria-label="Scorri a sinistra"
+        >
+          ←
+        </button>
+        <nav class="tag-list tag-scroller__track">
+          {allTags.map((tag) => (
+            <a href={`/tags/${tag}`}>{tag}</a>
+          ))}
+        </nav>
+        <button class="tag-scroller__arrow tag-scroller__arrow--right" aria-label="Scorri a destra">
+          →
+        </button>
+      </div>
+    )
+  }
 
   <script>
     document.querySelectorAll('.tag-scroller').forEach((scroller) => {

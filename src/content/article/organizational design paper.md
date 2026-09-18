@@ -1,21 +1,22 @@
 ---
 title: 'Organizational Design and NCDs Prevention'
-subtitle: "Healthy Households by Design: an Organizational Design Approach to Improve Long-lasting Behavioral Change Adherence and NCDs Prevention."
+subtitle: 'Healthy Households by Design: an Organizational Design Approach to Improve Long-lasting Behavioral Change Adherence and NCDs Prevention.'
+pageNumber: 'Academic work'
 date: 2025-09-04
 order: 1
 cover: '/immagini/fish_fowl.jpg'
+imageReference: 'Image reference: Sula Bermúdez-Silverman: Neither Fish, Flesh, nor Fowl. Photo: Elon Schoenholz.'
 summary: 'Healthy Households by Design: an Organizational Design Approach to Improve Long-lasting Behavioral Change Adherence and NCDs Prevention.'
 accentColor: '#e25965'
 draft: false
 ---
-# Image reference: Sula Bermúdez-Silverman: Neither Fish, Flesh, nor Fowl. Photo: Elon Schoenholz.
-
 
 ## Keywords:
 
 health seeker; non-communicable diseases; non-adherence; organizational design; behavioral change; design capabilities.
 
 ## Introduction:
+
 The non-communicable diseases epidemic (NCDs) is the most pressing health issue of our times. Almost all NCDs in Europe are caused by modifiable behavioral risk factors, such as tobacco use, alcohol consumption, diet, and physical activity (WHO, 2021), which means they are, in theory, preventable.
 
 The healthcare system globally is now focused on NCDs prevention and recognizes the crucial need to promote healthy lifestyle choices and advocates for behavioral change. Despite the extensive efforts there remains a widespread problem of non-adherence, especially in the long-term maintenance of significant behavioral change.
@@ -27,6 +28,7 @@ First the context will be introduced, as to highlight in particular the new role
 <hr/>
 
 ## Background:
+
 Among the most pressing issues that concern health globally, the United Nations addressed the non-communicable diseases epidemic (NCDs) and set target 3.4 as follows: “By 2030, reduce by one third premature mortality from non-communicable diseases through prevention and treatment and promote mental health and well-being” (United Nations, 2015).
 
 Also referred to as chronic diseases, NCDs include cardiovascular disease, cancer, diabetes, and chronic respiratory disease; these are caused by the complex interaction of different factors, some of which are more difficult to intervene on, such as genetic factors, while others, such as environmental and behavioral factors, are in theory largely preventable.
@@ -59,6 +61,7 @@ In applying organizational design within households it is fundamental to reflect
 Particular attention should be paid to the role of mothers, and women in general, as they are frequently the primary caregiver and have a central role in shaping the health behaviors of the family (Ho et al., 2022).
 
 ## Conclusions:
+
 The NCDs epidemic forces the healthcare system to shift the focus from health centers, clinics and hospitals to family households, from administering procedure onto passive patients to supporting health seekers in their ongoing efforts in maintaining healthy lifestyles.
 BCIs focused on education and counseling on the individual level are the most common and easily available response of the healthcare system in this direction, unfortunately though, their impact is very limited mainly due to a challenge of long-term adherence.
 
@@ -68,6 +71,7 @@ As BCIs are mainly offered as a responsive service when the beginning of an NCD 
 
 ## References:
 
+<div class="prose" style="font-style: italic;font-size: 12px;">
 Arena, R., Guazzi, M., Lianov, L., Whitsel, L., Berra, K., Lavie, C. J., ... & Shurney, D. (2015). Healthy lifestyle interventions to combat noncommunicable disease—a novel nonhierarchical connectivity model for key stakeholders: a policy statement from the American Heart Association, European Society of Cardiology, European Association for Cardiovascular Prevention and Rehabilitation, and American College of Preventive Medicine. European heart journal, 36(31), 2097-2109.
 
 Clarke, J. L. (2010). Preventive medicine: a ready solution for a health care system in crisis. Population health management, 13(S2), S-3.
@@ -102,3 +106,5 @@ Thornton, R. L., Yang, T. J., Ephraim, P. L., Boulware, L. E., & Cooper, L. A. (
 UN (2015). Transforming Our World: The 2030 Agenda for Sustainable Development. Resolution Adopted by the General Assembly on 25 September 2015, 42809, 1-13.
 
 World Health Organization. Noncommunicable Disease, & Mental Health Cluster. (2002). Innovative care for chronic conditions: building blocks for action: global report. World Health Organization.
+
+</div>

@@ -26,9 +26,9 @@ const fmt = (d: Date) =>
 <PageLayout
   title={`#${tag}`}
   eyebrow="Tag"
-  description={`${project.length} essay${project.length === 1 ? '' : 's'} tagged ${tag}.`}
+  description={`${project.length} project${project.length === 1 ? '' : 's'} tagged ${tag}`}
 >
-  <p><a href="/portfolio">← All essays</a></p>
+  <p><a href="/portfolio">← All projects</a></p>
   <div class="post-list">
     {
       project.map((post) => (
@@ -37,11 +37,13 @@ const fmt = (d: Date) =>
             <img src={post.data.cover} alt="" loading="lazy" />
           </div>
           <div>
-            <div class="post-card__meta">
-              {fmt(post.data.date)} · {post.data.author}
-            </div>
             <h2 class="post-card__title">{post.data.bigTitle}</h2>
             <p class="post-card__excerpt">{post.data.excerpt}</p>
+            <div class="post-card__tags">
+              {post.data.tags.map((tag) => (
+                <span>{tag}</span>
+              ))}
+            </div>
           </div>
         </a>
       ))

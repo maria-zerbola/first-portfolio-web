@@ -6,7 +6,12 @@ interface Props {
   accentColor?: string;
 }
 
-const { title = 'Maria Zerbola', description = 'a designer portfolio', image, accentColor } = Astro.props;
+const {
+  title = 'Maria Zerbola',
+  description = 'a designer portfolio',
+  image,
+  accentColor,
+} = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString();
 const ogImage = image ? new URL(image, Astro.site ?? Astro.url).toString() : undefined;
@@ -37,7 +42,7 @@ const ogImage = image ? new URL(image, Astro.site ?? Astro.url).toString() : und
 
     <title>{title}</title>
   </head>
-  <body style={accentColor ? `--accent: ${accentColor}` : undefined} >
+  <body style={accentColor ? `--accent: ${accentColor}` : undefined}>
     <slot />
   </body>
 </html>

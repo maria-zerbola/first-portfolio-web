@@ -20,7 +20,6 @@ export async function getStaticPaths() {
 
 const { post, prev, next } = Astro.props;
 const { Content, headings } = await render(post);
-
 ---
 
 <PageLayout
@@ -30,7 +29,6 @@ const { Content, headings } = await render(post);
   pageTitle={`${post.data.title} — Self Esteem`}
   accentColor={post.data.accentColor}
 >
-  
   {
     post.data.tags.length > 0 && (
       <div class="tag-list" style="margin-top: 24px;">
@@ -42,8 +40,8 @@ const { Content, headings } = await render(post);
   }
 
   <hr style="border:0;border-top:1px solid #94918f;margin:32px 0;" />
-  
-  <img src={post.data.cover}>
+
+  <img src={post.data.cover} />
 
   <ProjectToc headings={headings} accentColor={post.data.accentColor} />
 
@@ -54,11 +52,20 @@ const { Content, headings } = await render(post);
   <hr style="border:0;border-top:1px solid #94918f;margin:32px 0;" />
 
   <div class="post-meta">
-    <span style="display: flex; gap: 3rem;"> 
-      <span> <b style="font-style: normal; font-family: 'Space Grotesk', sans-serif;"> WHEN: </b> {post.data.time}</span>
-      <span> <b style="font-style: normal; font-family: 'Space Grotesk', sans-serif;"> WHERE: </b> {post.data.context}</span>
+    <span style="display: flex; gap: 3rem;">
+      <span>
+        <b style="font-style: normal; font-family: 'Space Grotesk', sans-serif;"> WHEN: </b>
+        {post.data.time}</span
+      >
+      <span>
+        <b style="font-style: normal; font-family: 'Space Grotesk', sans-serif;"> WHERE: </b>
+        {post.data.context}</span
+      >
     </span>
-    <span style="white-space: pre-wrap;"><b style="font-style: normal; font-family: 'Space Grotesk', sans-serif;">WHO: </b> {post.data.author}</span>
+    <span style="white-space: pre-wrap;"
+      ><b style="font-style: normal; font-family: 'Space Grotesk', sans-serif;">WHO: </b>
+      {post.data.author}</span
+    >
   </div>
 
   <nav class="post-nav" aria-label="Adjacent essays">

@@ -357,7 +357,7 @@ marquee {
   .rounded {
     font-style: italic;
     font-size: 18px;
-    
+
     &:before {
       content: '';
       border-radius: 50%;
@@ -429,7 +429,7 @@ marquee {
   margin-top: 40px;
 }
 
-.blog-right-container-link-wrapper{
+.blog-right-container-link-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -446,7 +446,6 @@ marquee {
     font-family: $italic-font;
     font-style: italic;
   }
-  
 }
 
 .right-blog {
@@ -503,7 +502,6 @@ marquee {
     font-family: $title-font;
 
     @media screen and (max-width: 1030px) {
-      
     }
   }
 
@@ -520,8 +518,6 @@ marquee {
     font-size: 30px;
   }
 }
-
-
 
 /* ---------- Menu items / contact buttons ---------- */
 
@@ -551,17 +547,17 @@ marquee {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
-  padding-top:10%;
+  padding-top: 10%;
 }
 .wip-links a {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   color: $subtitle-color;
   text-decoration: none;
   border: 1px solid currentColor;
   background-color: $subtitle-color;
   border-radius: 4px;
-  transition: 
-    background 0.2s, 
+  transition:
+    background 0.2s,
     color 0.2s;
   display: flex;
   gap: 1rem;
@@ -665,11 +661,10 @@ body.menu-open {
   .blog-header.blog-is-sticky {
     display: none;
   }
-  
 
   /* On phones each featured article scrolls in the normal page flow */
   .blog-header-container {
-    overflow: visible; 
+    overflow: visible;
     height: auto;
     scroll-snap-type: none;
     border-right: 0;
@@ -698,8 +693,8 @@ body.menu-open {
   .blog-article a {
     font-size: 20px;
   }
-  
-  .blog-header:not(.blog-is-sticky){
+
+  .blog-header:not(.blog-is-sticky) {
     display: grid;
     grid-template-columns: 80px 1fr;
     align-items: end;
@@ -720,9 +715,6 @@ body.menu-open {
   .blog-header:not(.blog-is-sticky) .header-article hr {
     display: none;
   }
-
-  
-
 }
 
 @media screen and (max-width: 560px) {
@@ -767,7 +759,7 @@ html {
   font-family: $subtitle-font;
   &--mobile-only {
     display: none;
- 
+
     @media screen and (max-width: 768px) {
       display: flex;
     }
@@ -818,7 +810,7 @@ html {
     cursor: pointer;
     padding: 0;
   }
- 
+
   &__toggle-bar {
     display: block;
     width: 100%;
@@ -826,15 +818,14 @@ html {
     background: $title-color;
   }
 
-
   @media screen and (max-width: 560px) {
     flex-wrap: wrap;
-    
+
     &__toggle {
       display: flex;
       order: 1;
     }
- 
+
     &__brand {
       order: 2;
       flex: 1;
@@ -849,7 +840,7 @@ html {
       align-items: center;
       gap: 18px;
       margin-top: 16px;
-      justify-content:space-evenly;
+      justify-content: space-evenly;
 
       &.is-open {
         display: flex;
@@ -914,9 +905,6 @@ html {
   color: $subtitle-color;
 }
 
-
-
-
 /* ---------- Prose (markdown article body) ---------- */
 
 .prose {
@@ -945,7 +933,7 @@ html {
     margin-top: 1.4em;
     color: var(--accent, $title-color);
   }
-  
+
   // Stile temporaneo: simile a h2, modificabile in seguito
   h4 {
     font-family: $title-font;
@@ -961,11 +949,11 @@ html {
     font-weight: 600;
     font-size: 32px;
     letter-spacing: -1px;
-    color: var(--accent, $title-color); 
+    color: var(--accent, $title-color);
     cursor: pointer;
     line-height: 1;
 
-    padding-left: 0.9em;   // spazio tra freccia e testo, regola a occhio
+    padding-left: 0.9em; // spazio tra freccia e testo, regola a occhio
     text-indent: -0.9em;
   }
 
@@ -975,9 +963,9 @@ html {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
-    
+
     &:hover {
-      color:var(--accent, $title-color);
+      color: var(--accent, $title-color);
     }
   }
 
@@ -1041,7 +1029,7 @@ html {
     column-gap: 4rem;
     column-rule: 1px solid $border-color; // opzionale: linea tra colonne
     margin-top: 40px;
-    
+
     h2:first-child {
       margin-top: 0;
     }
@@ -1051,7 +1039,7 @@ html {
     }
 
     @media screen and (max-width: 560px) {
-    columns: 1;
+      columns: 1;
     }
   }
 
@@ -1071,21 +1059,19 @@ html {
     }
 
     @media screen and (max-width: 560px) {
-    columns: 1;
-    border-left: 3px dotted $border-color;
-    border-right: 3px dotted $border-color;
-    padding: 1rem 3rem;
+      columns: 1;
+      border-left: 3px dotted $border-color;
+      border-right: 3px dotted $border-color;
+      padding: 1rem 3rem;
     }
   }
 
-
   /* Stile della singola riga (immagine + testo) */
   .item-row {
-    display: flex;             /* Attiva l'allineamento orizzontale */
-    align-items: center;       /* Centra verticalmente immagine e testo */
-    gap: 15px;                 /* Spazio tra icona e testo */
+    display: flex; /* Attiva l'allineamento orizzontale */
+    align-items: center; /* Centra verticalmente immagine e testo */
+    gap: 15px; /* Spazio tra icona e testo */
   }
-
 }
 
 /* ---------- Footer ---------- */
@@ -1312,7 +1298,7 @@ html {
       background: $body-bg;
       color: $blog-bg;
       border-color: $body-bg;
-      color:white;
+      color: white;
     }
   }
 }
@@ -1338,8 +1324,8 @@ html {
     }
 
     a {
-    white-space: nowrap;
-    flex: none;
+      white-space: nowrap;
+      flex: none;
     }
   }
 

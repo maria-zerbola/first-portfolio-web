@@ -12,7 +12,8 @@ interface Props {
   accentColor: string;
 }
 
-const { bigTitle, date, emphasis, headline, cover, author, context, excerpt, href, accentColor } = Astro.props;
+const { bigTitle, date, emphasis, headline, cover, author, context, excerpt, href, accentColor } =
+  Astro.props;
 
 const formatted = new Intl.DateTimeFormat('en-GB', {
   day: '2-digit',
@@ -28,7 +29,7 @@ const parts = emphasis ? headline.split('{emphasis}') : [headline];
 <div class="blog-header" style={`--accent: ${accentColor}`}>
   <div class="blog-article header-article">
     <div class="blog-big__title" href={href}>{bigTitle}</div>
-    <hr style="margin-top: 53px; border:0; border-top: 1px solid #94918f;"/>
+    <hr style="margin-top: 53px; border:0; border-top: 1px solid #94918f;" />
   </div>
   <div class="blog-article">
     <img src={cover} alt={bigTitle} />
@@ -78,7 +79,7 @@ const parts = emphasis ? headline.split('{emphasis}') : [headline];
   }
 
   .blog-detail span {
-     @media screen and (max-width: 560px) {
+    @media screen and (max-width: 560px) {
       padding-bottom: 1rem;
       border-bottom: 1px solid #94918f;
       margin-bottom: 2rem;
@@ -90,7 +91,7 @@ const parts = emphasis ? headline.split('{emphasis}') : [headline];
       padding-bottom: 14px;
     }
   }
-  
+
   .arrow {
     @media screen and (max-width: 560px) {
       display: none;

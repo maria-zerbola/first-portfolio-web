@@ -31,6 +31,7 @@ const article = defineCollection({
     date: z.coerce.date(),
     order: z.number().optional(),
     cover: z.string(),
+    imageReference: z.string().optional(),
     summary: z.string(),
     url: z.string().url().optional(),
     draft: z.boolean().default(false),

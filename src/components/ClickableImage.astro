@@ -6,6 +6,7 @@ interface Props {
 }
 const { text, imageSrc, alt = 'Immagine' } = Astro.props;
 ---
+
 <button class="clickable-trigger" data-image-src={imageSrc} data-image-alt={alt}>
   {text}
 </button>
@@ -38,12 +39,14 @@ const { text, imageSrc, alt = 'Immagine' } = Astro.props;
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('.clickable-trigger');
       if (!btn) return;
-      window.dispatchEvent(new CustomEvent('open-image-modal', {
-        detail: {
-          src: btn.dataset.imageSrc,
-          alt: btn.dataset.imageAlt,
-        },
-      }));
+      window.dispatchEvent(
+        new CustomEvent('open-image-modal', {
+          detail: {
+            src: btn.dataset.imageSrc,
+            alt: btn.dataset.imageAlt,
+          },
+        }),
+      );
     });
   }
 </script>

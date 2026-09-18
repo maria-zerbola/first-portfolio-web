@@ -32,6 +32,9 @@ const fmt = (d: Date) =>
   pageTitle={`${item.data.title} — Maria Zerbola`}
   accentColor={item.data.accentColor}
 >
+  <div class="prose" style="margin-top: -2rem;font-size: 0.8rem;margin-bottom: 2rem;">
+    {item.data.imageReference}
+  </div>
   <div class="item-meta">
     <span>{item.data.author}</span>
     <span>{fmt(item.data.date)}</span>
@@ -44,7 +47,7 @@ const fmt = (d: Date) =>
     <Content />
   </div>
 
-  <hr style="margin-bottom:3rem;"/> 
+  <hr style="margin-bottom:3rem;" />
 
   <nav class="item-nav" aria-label="Adjacent essays">
     {

@@ -23,14 +23,14 @@ const {
   mentionHref = '/',
   subscribeLabel = 'reach out @',
   subscribeHref = 'mailto:mariazerbola.design@gmail.com',
-  
-  rolltext = ['Welcome to my portfolio on the web', 
-    'My name is Maria and I am a postgraduate student at Politecnico di Milano, pursuing a double master degree in Product Service System Design and Management Engineering.', 
+
+  rolltext = [
+    'Welcome to my portfolio on the web',
+    'My name is Maria and I am a postgraduate student at Politecnico di Milano, pursuing a double master degree in Product Service System Design and Management Engineering.',
     'I love to explore the interdiscipinarity between design and management through business innovation, service design, strategic design or organizational change.',
     'With the overarching goal of improving our collective quality of life, systemically and sustainably.',
-    'Have a look around and if something catches your attention feel free to reach out!'
-  ]
- 
+    'Have a look around and if something catches your attention feel free to reach out!',
+  ],
 } = Astro.props;
 ---
 
@@ -68,8 +68,18 @@ const {
       class="linkedin-link"
       aria-label="Profilo LinkedIn"
     >
-      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" data-astro-cid-2j44jlrm="" fill="white" style="border-radius: inherit;"> 
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" data-astro-cid-2j44jlrm=""></path>
+      <svg
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        aria-hidden="true"
+        data-astro-cid-2j44jlrm=""
+        fill="white"
+        style="border-radius: inherit;"
+      >
+        <path
+          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+          data-astro-cid-2j44jlrm=""></path>
       </svg>
     </a>
     <a
@@ -79,25 +89,34 @@ const {
       class="email-link"
       aria-label="email address"
     >
-      <svg viewBox="0 0 8 8" width="30" aria-hidden="true" data-astro-cid-2j44jlrm="" fill="$subtitle-color" style="background-color: white;padding: 3px 1px 0px; border-radius: inherit;" height="20"> 
-        <path d="m0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z" data-astro-cid-2j44jlrm=""></path> 
+      <svg
+        viewBox="0 0 8 8"
+        width="30"
+        aria-hidden="true"
+        data-astro-cid-2j44jlrm=""
+        fill="$subtitle-color"
+        style="background-color: white;padding: 3px 1px 0px; border-radius: inherit;"
+        height="20"
+      >
+        <path
+          d="m0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z"
+          data-astro-cid-2j44jlrm=""></path>
       </svg>
     </a>
-  </div>  
+  </div>
 </div>
 
 <style lang="scss">
   .introduction {
-  overflow: hidden;
-  border-top: 1px solid #94918f;
-  border-bottom: 1px solid #94918f;
-  margin: 30px 0;
-  height: 70%;
+    overflow: hidden;
+    border-top: 1px solid #94918f;
+    border-bottom: 1px solid #94918f;
+    margin: 30px 0;
+    height: 70%;
 
-  @media screen and (max-width: 1030px) {
+    @media screen and (max-width: 1030px) {
       display: none;
     }
-
   }
 
   .introduction-track {
@@ -133,4 +152,3 @@ const {
     }
   }
 </style>
-

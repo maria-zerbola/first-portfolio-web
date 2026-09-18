@@ -14,7 +14,8 @@ const article = await getCollection('article', ({ data }) => !data.draft);
 const pinned = project[0];
 project.sort((a, b) => +b.data.date - +a.data.date);
 ---
-<Starfield /> 
+
+<Starfield />
 <BaseLayout>
   <SiteNav mobileOnly />
   <div class="blog">
@@ -44,6 +45,6 @@ project.sort((a, b) => +b.data.date - +a.data.date);
       }
     </div>
 
-    <Sidebar entries={article}/>
+    <Sidebar entries={article} />
   </div>
 </BaseLayout>

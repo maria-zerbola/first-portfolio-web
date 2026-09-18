@@ -3,8 +3,17 @@ interface Props {
   items?: string[];
 }
 
-const { items = ['Systemic Design', 'Service Design', 'Digital Transformation', 'Human-Centered Design', 'Organizational Change', 'Social Innovation', 'Design for Health and Wellbeing'] } =
-  Astro.props;
+const {
+  items = [
+    'Systemic Design',
+    'Service Design',
+    'Digital Transformation',
+    'Human-Centered Design',
+    'Organizational Change',
+    'Social Innovation',
+    'Design for Health and Wellbeing',
+  ],
+} = Astro.props;
 ---
 
 <marquee width="100%" direction="left">
