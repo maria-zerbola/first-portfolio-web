@@ -1030,6 +1030,10 @@ html {
     column-rule: 1px solid $border-color; // opzionale: linea tra colonne
     margin-top: 40px;
 
+    p:first-child {
+      margin-top: 0;
+    }
+
     h2:first-child {
       margin-top: 0;
     }

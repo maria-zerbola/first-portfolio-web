@@ -17,6 +17,7 @@ const {
 	interval = 5000,
 } = Astro.props;
 const carouselId = `carousel-${Math.random().toString(36).slice(2, 9)}`;
+
 ---
 
 <section
@@ -58,8 +59,8 @@ const carouselId = `carousel-${Math.random().toString(36).slice(2, 9)}`;
 
 <style>
 	.carousel { position: relative; max-width: 900px; margin: 0 auto; padding: 3rem 0rem; }
-	.viewport { overflow: hidden; border-radius: 0.75rem; background: #f1f5f9; }
-	.track { display: flex; transition: transform 350ms ease; }
+	.viewport { overflow: hidden; border-radius: 0.75rem; background: #f1f5f9; transition: height 350ms ease; }
+	.track { display: flex; align-items: flex-start; transition: transform 350ms ease; }
 	.slide { position: relative; min-width: 100%; }
 	.slide img { display: block; width: 100%; height: auto; object-fit: cover; }
 	.caption { position: absolute; right: 0; bottom: 0; left: 0; margin: 0; padding: 0.75rem 1rem; color: #fff; background: rgb(0 0 0 / 60%); }
@@ -70,29 +71,53 @@ const carouselId = `carousel-${Math.random().toString(36).slice(2, 9)}`;
 	.dot { width: 0.7rem; height: 0.7rem; padding: 0; border: 0; border-radius: 50%; background: #cbd5e1; cursor: pointer; }
 	.dot[aria-current='true'] { background: #0f172a; }
 	.empty { padding: 3rem; color: #64748b; text-align: center; background: #f8fafc; }
-	@media (prefers-reduced-motion: reduce) { .track { transition: none; } }
+	@media (prefers-reduced-motion: reduce) { .track, .viewport { transition: none; } }
 </style>
 
 {images.length > 1 && <script define:vars={{ carouselId }}>
 	const carousel = document.getElementById(carouselId);
 	if (carousel) {
+		const viewport = carousel.querySelector('.viewport');
 		const track = carousel.querySelector('.track');
 		const slides = [...carousel.querySelectorAll('.slide')];
 		const dots = [...carousel.querySelectorAll('.dot')];
 		let current = 0;
 		let timer;
+
 		const goTo = (index) => {
 			current = (index + slides.length) % slides.length;
 			track.style.transform = `translateX(-${current * 100}%)`;
+			viewport.style.height = `${slides[current].offsetHeight}px`;
 			slides.forEach((slide, i) => slide.setAttribute('aria-hidden', String(i !== current)));
 			dots.forEach((dot, i) => dot.setAttribute('aria-current', i === current ? 'true' : 'false'));
 		};
+
 		carousel.querySelector('.previous').addEventListener('click', () => goTo(current - 1));
 		carousel.querySelector('.next').addEventListener('click', () => goTo(current + 1));
 		dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+		goTo(0);
+		window.addEventListener('resize', () => goTo(current));
+		slides.forEach((slide) => slide.querySelector('img').addEventListener('load', () => goTo(current)));
+
 		if (carousel.dataset.autoplay === 'true') {
-			timer = setInterval(() => goTo(current + 1), Number(carousel.dataset.interval) || 5000);
-			carousel.addEventListener('mouseenter', () => clearInterval(timer));
+			const delay = Number(carousel.dataset.interval) || 5000;
+			let visible = false;
+			let hovered = false;
+
+			const start = () => {
+				clearInterval(timer);
+				timer = setInterval(() => goTo(current + 1), delay);
+			};
+			const update = () => (visible && !hovered ? start() : clearInterval(timer));
+
+			new IntersectionObserver(([entry]) => {
+				visible = entry.isIntersecting;
+				update();
+			}, { threshold: 0.5 }).observe(carousel);
+
+			carousel.addEventListener('mouseenter', () => { hovered = true; update(); });
+			carousel.addEventListener('mouseleave', () => { hovered = false; update(); });
 		}
 	}
 </script>}
