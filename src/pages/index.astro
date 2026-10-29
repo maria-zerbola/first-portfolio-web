@@ -6,7 +6,6 @@ import SiteNav from '../components/SiteNav.astro';
 import StickyHeader from '../components/StickyHeader.astro';
 import FeaturedArticle from '../components/FeaturedArticle.astro';
 import Sidebar from '../components/Sidebar.astro';
-import Starfield from '../components/Starfield.astro';
 
 const project = await getCollection('project', ({ data }) => !data.draft);
 const article = await getCollection('article', ({ data }) => !data.draft);
@@ -15,7 +14,6 @@ const pinned = project[0];
 project.sort((a, b) => +b.data.date - +a.data.date);
 ---
 
-<Starfield />
 <BaseLayout>
   <SiteNav mobileOnly />
   <div class="blog">

@@ -3,7 +3,7 @@ title: 'Organizational Design and NCDs Prevention'
 subtitle: 'Healthy Households by Design: an Organizational Design Approach to Improve Long-lasting Behavioral Change Adherence and NCDs Prevention.'
 pageNumber: 'Academic work'
 date: 2025-09-04
-order: 1
+order: 2
 cover: '/immagini/fish_fowl.jpg'
 imageReference: 'Image reference: Sula Bermúdez-Silverman: Neither Fish, Flesh, nor Fowl. Photo: Elon Schoenholz.'
 summary: 'Healthy Households by Design: an Organizational Design Approach to Improve Long-lasting Behavioral Change Adherence and NCDs Prevention.'
